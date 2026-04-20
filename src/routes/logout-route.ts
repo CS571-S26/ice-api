@@ -18,7 +18,7 @@ export class CS571LogoutRoute implements CS571Route {
     public addRoute(app: Express): void {
         app.post(CS571LogoutRoute.ROUTE_NAME, (req, res) => {
             res.status(200).cookie(
-                'icewebdev4_auth',
+                'ice_auth',
                 "goodbye",
                 {
                     domain: this.config.PUBLIC_CONFIG.IS_REMOTELY_HOSTED ? this.config.PUBLIC_CONFIG.COOKIE_DOMAIN : undefined,

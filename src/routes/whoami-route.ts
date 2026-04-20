@@ -15,7 +15,7 @@ export class CS571WhoAmIRoute implements CS571Route {
 
     public addRoute(app: Express): void {
         app.get(CS571WhoAmIRoute.ROUTE_NAME, async (req, res) => {
-            const user = await this.tokenAgent.validateToken(req.cookies['icewebdev4_auth']);
+            const user = await this.tokenAgent.validateToken(req.cookies['ice_auth']);
             res.status(200).send({
                 isLoggedIn: user ? true : false,
             })

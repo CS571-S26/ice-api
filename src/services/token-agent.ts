@@ -17,7 +17,7 @@ export class CS571IceTokenAgent {
     }
 
     public authenticateToken = async (req: Request, res: Response, next: NextFunction) => {
-        const token = await this.validateToken(req.cookies['icewebdev4_auth'])
+        const token = await this.validateToken(req.cookies['ice_auth'])
         if (token) {
             (req as any).user = token;
             next();

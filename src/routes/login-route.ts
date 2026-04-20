@@ -44,7 +44,7 @@ export class CS571LoginRoute implements CS571Route {
             const cook = this.tokenAgent.generateAccessToken(username);
 
             res.status(200).cookie(
-                'icewebdev4_auth',
+                'ice_auth',
                 cook,
                 {
                     domain: this.config.PUBLIC_CONFIG.IS_REMOTELY_HOSTED ? this.config.PUBLIC_CONFIG.COOKIE_DOMAIN : undefined,
