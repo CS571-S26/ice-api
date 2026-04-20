@@ -4,9 +4,9 @@ import { CS571Route } from "@cs571/api-framework";
 import { Ticket } from '../model/ticket';
 import { CS571IceDbConnector } from '../services/db-connector';
 
-export class CS571GetCommentsRoute implements CS571Route {
+export class CS571GetCommentsShortRoute implements CS571Route {
 
-    public static readonly ROUTE_NAME: string = (process.env['CS571_BASE_PATH'] ?? "") + '/comments';
+    public static readonly ROUTE_NAME: string = (process.env['CS571_BASE_PATH'] ?? "") + '/comments-short';
 
     private readonly connector: CS571IceDbConnector;
 
@@ -15,9 +15,9 @@ export class CS571GetCommentsRoute implements CS571Route {
     }
 
     public addRoute(app: Express): void {
-        app.get(CS571GetCommentsRoute.ROUTE_NAME, async (req, res) => {
+        app.get(CS571GetCommentsShortRoute.ROUTE_NAME, async (req, res) => {
             const num = req.query?.num as string;
-            const comms = await this.connector.getComments(50);
+            const comms = await this.connector.getComments(10);
             if (num) {
                 try {
                     const numnum = parseInt(num);
@@ -32,6 +32,6 @@ export class CS571GetCommentsRoute implements CS571Route {
     }
 
     public getRouteName(): string {
-        return CS571GetCommentsRoute.ROUTE_NAME;
+        return CS571GetCommentsShortRoute.ROUTE_NAME;
     }
 }

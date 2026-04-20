@@ -73,9 +73,9 @@ export class CS571IceDbConnector {
         return new Comment(creation.id, creation.comment, creation.author, creation.created);
     }
 
-    public async getComments(): Promise<Comment[]> {
+    public async getComments(n: number): Promise<Comment[]> {
         const tabMsgs = await this.badgerCommentsTable.findAll({
-            limit: 50,
+            limit: n ?? 50,
             order: [['created', 'DESC']]
         });
         return tabMsgs.map(c => new Comment(c.id, c.comment, c.author, c.created))

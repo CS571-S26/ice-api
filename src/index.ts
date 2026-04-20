@@ -27,6 +27,7 @@ import { CS571SaladRoute } from './routes/salad-route';
 import { CS571BreadsticksRoute } from './routes/breadsticks-route';
 import { CS571RecipesRoute } from './routes/recipes-route';
 import { CS571AllRecipesRoute } from './routes/all-recipes';
+import { CS571GetCommentsShortRoute } from './routes/get-comments-short-route';
 
 console.log("Welcome to ICE API!");
 
@@ -83,6 +84,7 @@ appBundle.router.addRoutes([
   new CS571BreadsticksRoute(breadsticks),
   new CS571TicketsRoute(tix),
   new CS571GetCommentsRoute(db),
+  new CS571GetCommentsShortRoute(db),
   new CS571CreateCommentRoute(db, ta, appBundle.auth),
   new CS571LoginRoute(userService, ta, appBundle.config),
   new CS571LogoutRoute(appBundle.config),
